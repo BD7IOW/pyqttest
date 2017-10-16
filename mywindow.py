@@ -8,17 +8,24 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
       def __init__(self):
           super(mywindow, self).__init__()
           self.setupUi(self)
+          self.comlist = ["COM1", "COM2", "COM3", "COM4", "COM5", "COM6"]
+          for i in self.comlist:
+              self.comboBox.addItem(i)
 
       def connectdev(self):
           if self.radioButton.isChecked():
               print("Connecting with serial.....")
+              com = self.comboBox.currentText()
+              print(com)
               ptr = self.lineEdit.text()
-              reply = QMessageBox.information(
-                  self,
-                  "Connect dev:",
-                  ptr,
-                  QMessageBox.No
-              )
+              if ptr.isdigit():
+                 reply = QMessageBox.information(
+                      self,
+                      "Connect dev:",
+                      ptr,
+                      QMessageBox.Yes
+                      )
+              else: reply = QMessageBox.information(self,"Warnning", "设备ID只能是数字！", QMessageBox.Yes)
           elif self.radioButton_2.isChecked():
               print("该功能没上线")
               reply = QMessageBox.information(
