@@ -11,7 +11,7 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
           self.comlist = ["COM1", "COM2", "COM3", "COM4", "COM5", "COM6"]
           for i in self.comlist:
               self.comboBox.addItem(i)
-
+          self.radioButton.setChecked(True)
       def connectdev(self):
           if self.radioButton.isChecked():
               print("Connecting with serial.....")
