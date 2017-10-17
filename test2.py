@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(883, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.radioButton = QtWidgets.QRadioButton(self.centralwidget)
@@ -31,9 +31,17 @@ class Ui_MainWindow(object):
         self.comboBox.setEditable(True)
         self.comboBox.setMaxVisibleItems(50)
         self.comboBox.setObjectName("comboBox")
+        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_2.setGeometry(QtCore.QRect(0, 150, 101, 23))
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
+        self.tableWidget.setGeometry(QtCore.QRect(180, 30, 621, 201))
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(0)
+        self.tableWidget.setRowCount(0)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 31))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 883, 23))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -43,6 +51,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.comboBox.setCurrentIndex(-1)
         self.pushButton.clicked.connect(MainWindow.connectdev)
+        self.pushButton_2.clicked.connect(MainWindow.listnode)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -52,4 +61,5 @@ class Ui_MainWindow(object):
         self.pushButton.setText(_translate("MainWindow", "连接设备"))
         self.radioButton_2.setText(_translate("MainWindow", "远程连接"))
         self.lineEdit.setText(_translate("MainWindow", "输入设备ID"))
+        self.pushButton_2.setText(_translate("MainWindow", "刷新端设备"))
 
